@@ -1,0 +1,60 @@
+{
+  "title": "图片反推提示词助手",
+  "description": "与参考图片一起交给外部视觉 AI，忠实重建可见内容。",
+  "template_kind": "assistant",
+  "tags": [
+    "反推",
+    "生图",
+    "助手"
+  ],
+  "target_models": [
+    "多模态 AI"
+  ],
+  "language": "zh",
+  "variables": [
+    {
+      "name": "goal",
+      "label": "重建目标",
+      "type": "textarea",
+      "default": "忠实重建画面",
+      "required": false
+    },
+    {
+      "name": "focus",
+      "label": "观察重点",
+      "type": "textarea",
+      "default": "构图、主体、空间关系、光线与材质",
+      "required": false
+    },
+    {
+      "name": "constraints",
+      "label": "允许的调整与保留要求",
+      "type": "textarea",
+      "default": "",
+      "required": false
+    },
+    {
+      "name": "format",
+      "label": "输出形式",
+      "type": "select",
+      "default": "自然语言提示词",
+      "required": true,
+      "options": [
+        "自然语言提示词",
+        "分区 JSON"
+      ]
+    },
+    {
+      "name": "output_language",
+      "label": "输出语言",
+      "type": "select",
+      "default": "英文",
+      "required": true,
+      "options": [
+        "中文",
+        "英文"
+      ]
+    }
+  ],
+  "context_paths": []
+}

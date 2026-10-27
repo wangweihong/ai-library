@@ -1,0 +1,311 @@
+{
+  "version": 1,
+  "resources": [
+    {
+      "id": "original.template.krea2-photo-assistant",
+      "kind": "templates",
+      "path": "templates/krea2-photo-assistant",
+      "source": {
+        "author": "ai-library",
+        "type": "original",
+        "reference_urls": [
+          "https://www.krea.ai/blog/explorative-prompting-krea-2"
+        ]
+      }
+    },
+    {
+      "id": "original.template.minimax-h3-ref2va-assistant",
+      "kind": "templates",
+      "path": "templates/minimax-h3-ref2va-assistant",
+      "source": {
+        "author": "ai-library",
+        "type": "original",
+        "reference_urls": [
+          "https://github.com/MiniMax-AI/MiniMax-H3/tree/d21241f0a4b3acbb34c97dae47fa417b7065e438/skills/h3-prompt-writing"
+        ],
+        "reference_commit": "d21241f0a4b3acbb34c97dae47fa417b7065e438"
+      }
+    },
+    {
+      "id": "original.template.prompt-expansion-assistant",
+      "kind": "templates",
+      "path": "templates/prompt-expansion-assistant",
+      "source": {
+        "author": "ai-library",
+        "type": "original",
+        "reference_urls": []
+      }
+    },
+    {
+      "id": "original.template.image-reverse-assistant",
+      "kind": "templates",
+      "path": "templates/image-reverse-assistant",
+      "source": {
+        "author": "ai-library",
+        "type": "original",
+        "reference_urls": []
+      }
+    },
+    {
+      "id": "original.template.krea2-photo-prompt",
+      "kind": "templates",
+      "path": "templates/krea2-photo-prompt",
+      "source": {
+        "author": "ai-library",
+        "type": "original",
+        "reference_urls": [
+          "https://www.krea.ai/blog/explorative-prompting-krea-2"
+        ]
+      }
+    },
+    {
+      "id": "original.template.minimax-h3-ref2va-prompt",
+      "kind": "templates",
+      "path": "templates/minimax-h3-ref2va-prompt",
+      "source": {
+        "author": "ai-library",
+        "type": "original",
+        "reference_urls": [
+          "https://github.com/MiniMax-AI/MiniMax-H3/tree/d21241f0a4b3acbb34c97dae47fa417b7065e438/skills/h3-prompt-writing"
+        ],
+        "reference_commit": "d21241f0a4b3acbb34c97dae47fa417b7065e438"
+      }
+    },
+    {
+      "id": "original.skill.creative-director",
+      "kind": "skills",
+      "path": "skills/original/creative-director",
+      "title": "通用导演 Skill",
+      "description": "从创意简报到分镜、连续性和逐镜头交付的通用导演工作法。",
+      "tags": [
+        "导演",
+        "分镜",
+        "视频"
+      ],
+      "target_models": [
+        "通用"
+      ],
+      "language": "zh",
+      "source": {
+        "author": "ai-library",
+        "type": "original"
+      }
+    },
+    {
+      "id": "minimax-h3.skill.h3-prompt-writing",
+      "kind": "skills",
+      "path": "skills/minimax-h3/h3-prompt-writing",
+      "title": "H3 官方提示词编写",
+      "tags": [
+        "视频",
+        "minimax",
+        "官方",
+        "r2v",
+        "提示词"
+      ],
+      "target_models": [
+        "MiniMax H3"
+      ],
+      "language": "en",
+      "source": {
+        "author": "MiniMax-AI",
+        "type": "upstream",
+        "url": "https://github.com/MiniMax-AI/MiniMax-H3/tree/d21241f0a4b3acbb34c97dae47fa417b7065e438/skills/h3-prompt-writing",
+        "commit": "d21241f0a4b3acbb34c97dae47fa417b7065e438",
+        "license": null
+      }
+    },
+    {
+      "id": "minimax-h3.skill.3d-animation-short-generator",
+      "kind": "skills",
+      "path": "skills/minimax-h3/3d-animation-short-generator",
+      "title": "3D 动画短片制作",
+      "tags": [
+        "视频",
+        "minimax",
+        "官方",
+        "动画",
+        "导演"
+      ],
+      "target_models": [
+        "MiniMax H3"
+      ],
+      "language": "mixed",
+      "source": {
+        "author": "MiniMax-AI",
+        "type": "upstream",
+        "url": "https://github.com/MiniMax-AI/MiniMax-H3/tree/d21241f0a4b3acbb34c97dae47fa417b7065e438/skills/3d-animation-short-generator",
+        "commit": "d21241f0a4b3acbb34c97dae47fa417b7065e438",
+        "license": null
+      }
+    },
+    {
+      "id": "minimax-h3.skill.brand-promo-video-generator",
+      "kind": "skills",
+      "path": "skills/minimax-h3/brand-promo-video-generator",
+      "title": "品牌宣传短片",
+      "tags": [
+        "视频",
+        "minimax",
+        "官方",
+        "品牌",
+        "宣传"
+      ],
+      "target_models": [
+        "MiniMax H3"
+      ],
+      "language": "mixed",
+      "source": {
+        "author": "MiniMax-AI",
+        "type": "upstream",
+        "url": "https://github.com/MiniMax-AI/MiniMax-H3/tree/d21241f0a4b3acbb34c97dae47fa417b7065e438/skills/brand-promo-video-generator",
+        "commit": "d21241f0a4b3acbb34c97dae47fa417b7065e438",
+        "license": null
+      }
+    },
+    {
+      "id": "minimax-h3.skill.co-op-game-intro-generator",
+      "kind": "skills",
+      "path": "skills/minimax-h3/co-op-game-intro-generator",
+      "title": "双人游戏开场",
+      "tags": [
+        "视频",
+        "minimax",
+        "官方",
+        "游戏",
+        "开场"
+      ],
+      "target_models": [
+        "MiniMax H3"
+      ],
+      "language": "mixed",
+      "source": {
+        "author": "MiniMax-AI",
+        "type": "upstream",
+        "url": "https://github.com/MiniMax-AI/MiniMax-H3/tree/d21241f0a4b3acbb34c97dae47fa417b7065e438/skills/co-op-game-intro-generator",
+        "commit": "d21241f0a4b3acbb34c97dae47fa417b7065e438",
+        "license": null
+      }
+    },
+    {
+      "id": "minimax-h3.skill.handdrawn-live-video-generator",
+      "kind": "skills",
+      "path": "skills/minimax-h3/handdrawn-live-video-generator",
+      "title": "手绘与实景融合",
+      "tags": [
+        "视频",
+        "minimax",
+        "官方",
+        "手绘",
+        "实景"
+      ],
+      "target_models": [
+        "MiniMax H3"
+      ],
+      "language": "mixed",
+      "source": {
+        "author": "MiniMax-AI",
+        "type": "upstream",
+        "url": "https://github.com/MiniMax-AI/MiniMax-H3/tree/d21241f0a4b3acbb34c97dae47fa417b7065e438/skills/handdrawn-live-video-generator",
+        "commit": "d21241f0a4b3acbb34c97dae47fa417b7065e438",
+        "license": null
+      }
+    },
+    {
+      "id": "minimax-h3.skill.minimalist-product-ad-generator",
+      "kind": "skills",
+      "path": "skills/minimax-h3/minimalist-product-ad-generator",
+      "title": "极简产品广告",
+      "tags": [
+        "视频",
+        "minimax",
+        "官方",
+        "广告",
+        "产品"
+      ],
+      "target_models": [
+        "MiniMax H3"
+      ],
+      "language": "mixed",
+      "source": {
+        "author": "MiniMax-AI",
+        "type": "upstream",
+        "url": "https://github.com/MiniMax-AI/MiniMax-H3/tree/d21241f0a4b3acbb34c97dae47fa417b7065e438/skills/minimalist-product-ad-generator",
+        "commit": "d21241f0a4b3acbb34c97dae47fa417b7065e438",
+        "license": null
+      }
+    },
+    {
+      "id": "minimax-h3.skill.music-video-subtitle-generator",
+      "kind": "skills",
+      "path": "skills/minimax-h3/music-video-subtitle-generator",
+      "title": "音乐视频与歌词字幕",
+      "tags": [
+        "视频",
+        "minimax",
+        "官方",
+        "音乐",
+        "字幕"
+      ],
+      "target_models": [
+        "MiniMax H3"
+      ],
+      "language": "mixed",
+      "source": {
+        "author": "MiniMax-AI",
+        "type": "upstream",
+        "url": "https://github.com/MiniMax-AI/MiniMax-H3/tree/d21241f0a4b3acbb34c97dae47fa417b7065e438/skills/music-video-subtitle-generator",
+        "commit": "d21241f0a4b3acbb34c97dae47fa417b7065e438",
+        "license": null
+      }
+    },
+    {
+      "id": "minimax-h3.skill.paper-collage-explainer-generator",
+      "kind": "skills",
+      "path": "skills/minimax-h3/paper-collage-explainer-generator",
+      "title": "纸艺拼贴解说",
+      "tags": [
+        "视频",
+        "minimax",
+        "官方",
+        "拼贴",
+        "解说"
+      ],
+      "target_models": [
+        "MiniMax H3"
+      ],
+      "language": "mixed",
+      "source": {
+        "author": "MiniMax-AI",
+        "type": "upstream",
+        "url": "https://github.com/MiniMax-AI/MiniMax-H3/tree/d21241f0a4b3acbb34c97dae47fa417b7065e438/skills/paper-collage-explainer-generator",
+        "commit": "d21241f0a4b3acbb34c97dae47fa417b7065e438",
+        "license": null
+      }
+    },
+    {
+      "id": "minimax-h3.skill.papercraft-stop-motion-explainer",
+      "kind": "skills",
+      "path": "skills/minimax-h3/papercraft-stop-motion-explainer",
+      "title": "纸艺定格科普",
+      "tags": [
+        "视频",
+        "minimax",
+        "官方",
+        "定格",
+        "科普"
+      ],
+      "target_models": [
+        "MiniMax H3"
+      ],
+      "language": "mixed",
+      "source": {
+        "author": "MiniMax-AI",
+        "type": "upstream",
+        "url": "https://github.com/MiniMax-AI/MiniMax-H3/tree/d21241f0a4b3acbb34c97dae47fa417b7065e438/skills/papercraft-stop-motion-explainer",
+        "commit": "d21241f0a4b3acbb34c97dae47fa417b7065e438",
+        "license": null
+      }
+    }
+  ]
+}

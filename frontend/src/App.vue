@@ -3,8 +3,26 @@ import { computed, nextTick, onMounted, onUnmounted, reactive, ref, watch } from
 import { ApiError, json, request } from './api'
 import ModalShell from './components/ModalShell.vue'
 import TagEditor from './components/TagEditor.vue'
+import ResourceLibrary from './resources/ResourceLibrary.vue'
+import type { ResourceKind } from './resources/types'
 import { emptyFilters, emptyPrompt, fieldOptions, inputOf, labels } from './resources/prompts/types'
 import type { BatchAction, BatchPreview, BatchRequest, Filters, Page, Prompt, PromptInput, Summary, Tag, TagResult } from './resources/prompts/types'
+
+const activeResource = ref<'prompts' | ResourceKind>('prompts')
+const resourcePage = ref<InstanceType<typeof ResourceLibrary>>()
+function changeResource(kind: 'prompts' | ResourceKind) {
+  if (kind === activeResource.value) return
+  const navigate = () => { activeResource.value = kind }
+  if (activeResource.value === 'prompts') guard(navigate)
+  else resourcePage.value?.requestLeave(navigate)
+}
+async function fromTemplate(value: { text: string, media_type: string }) {
+  activeResource.value = 'prompts'
+  newRecord()
+  await nextTick()
+  draft.value.prompt = value.text
+  draft.value.media_type = value.media_type
+}
 
 const filters = reactive(emptyFilters())
 const searchText = ref('')
@@ -281,12 +299,14 @@ async function applyBatch() {
 }
 function beforeUnload(event: BeforeUnloadEvent) { if (dirty.value || saving.value) { event.preventDefault(); event.returnValue = '' } }
 function keydown(event: KeyboardEvent) {
+  if (activeResource.value !== 'prompts') return
   if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 's') {
     event.preventDefault()
     if (!guardOpen.value && !batchOpen.value) void save()
   }
 }
 function focusRefresh() {
+  if (activeResource.value !== 'prompts') return
   if (Date.now() - lastFocus < 3000 || saving.value || batchOpen.value || guardOpen.value) return
   lastFocus = Date.now(); void refresh()
 }
@@ -301,7 +321,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="app-shell" :class="{ 'show-detail': mobileDetail }">
+  <div v-show="activeResource === 'prompts'" class="app-shell" :class="{ 'show-detail': mobileDetail }">
     <header class="app-header">
       <a class="brand" href="/" @click.prevent="guard(() => { resetFilters(); mode = 'empty'; mobileDetail = false })">
         <span class="brand-mark" aria-hidden="true">a<span>i</span></span>
@@ -319,8 +339,10 @@ onUnmounted(() => {
     </header>
 
     <aside class="sidebar" :class="{ 'mobile-open': mobileFilters }" aria-label="资源导航与筛选">
-      <div class="section-label">资源库 <span>01</span></div>
+      <div class="section-label">资源库 <span>03</span></div>
       <button class="nav-item active" @click="resetFilters"><span>▤　提示词</span><span class="nav-dot"></span></button>
+      <button class="nav-item" @click="changeResource('templates')"><span>▧　提示词模板</span></button>
+      <button class="nav-item" @click="changeResource('skills')"><span>◇　Skills</span></button>
       <div class="sidebar-section">
         <div class="section-label">快捷浏览</div>
         <button class="nav-item" :class="{ chosen: !filters.untagged }" @click="filters.untagged = false"><span>全部提示词</span></button>
@@ -402,4 +424,8 @@ onUnmounted(() => {
       <div class="modal-actions"><button :disabled="batchBusy" @click="closeBatch">取消</button><button v-if="!batchPreview" class="primary" :disabled="batchBusy" @click="previewBatch">{{ batchBusy ? '正在核对…' : '预览影响范围' }}</button><button v-else :class="batchAction === 'delete' ? 'destructive' : 'primary'" :disabled="batchBusy" @click="applyBatch">{{ batchBusy ? '处理中…' : `确认${batchAction === 'delete' ? '删除' : '应用'}` }}</button></div>
     </ModalShell>
   </div>
+  <KeepAlive>
+    <ResourceLibrary v-if="activeResource !== 'prompts'" :key="activeResource" ref="resourcePage" :kind="activeResource" :theme="theme"
+      @navigate="changeResource" @theme="theme = $event" @prompt="fromTemplate" />
+  </KeepAlive>
 </template>

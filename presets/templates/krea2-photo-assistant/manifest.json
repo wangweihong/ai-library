@@ -1,0 +1,68 @@
+{
+  "title": "Krea 2 写实助手",
+  "description": "将创意整理成简洁探索版与细节控制版写实指令。",
+  "template_kind": "assistant",
+  "tags": [
+    "写实",
+    "生图",
+    "助手"
+  ],
+  "target_models": [
+    "Krea 2"
+  ],
+  "language": "zh",
+  "variables": [
+    {
+      "name": "subject",
+      "label": "主体与创意",
+      "type": "textarea",
+      "default": null,
+      "required": true
+    },
+    {
+      "name": "scene",
+      "label": "场景与动作",
+      "type": "textarea",
+      "default": "",
+      "required": false
+    },
+    {
+      "name": "realism",
+      "label": "真实感方向",
+      "type": "select",
+      "default": "生活纪实",
+      "required": true,
+      "options": [
+        "生活纪实",
+        "商业摄影",
+        "电影剧照"
+      ]
+    },
+    {
+      "name": "lighting",
+      "label": "光线偏好",
+      "type": "textarea",
+      "default": "柔和自然侧光",
+      "required": false
+    },
+    {
+      "name": "constraints",
+      "label": "保留与排除要求",
+      "type": "textarea",
+      "default": "",
+      "required": false
+    },
+    {
+      "name": "output_language",
+      "label": "输出语言",
+      "type": "select",
+      "default": "英文",
+      "required": true,
+      "options": [
+        "中文",
+        "英文"
+      ]
+    }
+  ],
+  "context_paths": []
+}

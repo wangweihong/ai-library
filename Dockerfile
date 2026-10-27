@@ -16,6 +16,7 @@ RUN pip install --no-cache-dir --no-deps ./backend \
     && groupadd --gid 1000 library && useradd --uid 1000 --gid library --no-create-home library \
     && mkdir /data && chown library:library /data
 COPY --from=frontend /build/dist ./frontend/dist/
+COPY presets/ ./presets/
 USER library
 EXPOSE 8765
 CMD ["ai-library", "serve", "--host", "0.0.0.0", "--port", "8765"]

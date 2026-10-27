@@ -1,10 +1,10 @@
 # ai-library · AI 资源库
 
-独立管理可复用的 AI 资源。第一版提供提示词浏览、编辑、标签整理及 ComfyUI API；skill 和提示词模板将作为独立资源模块扩展。
+独立管理可复用的 AI 资源。提供提示词、参数化模板和完整 Skill 包管理，包含标签筛选、历史版本、预设复制及 ComfyUI API。
 
 前端采用 Vue 3 / TypeScript / Vite，后端采用 FastAPI / SQLite。只有服务端访问数据库，ComfyUI 节点通过 HTTP API 读写。
 
-![桌面界面，临时库中的示例内容](docs/screenshots/desktop.png)
+![Skill 文件、官方规范与独立标签管理](docs/screenshots/skills.png)
 
 ## Docker Compose 启动
 
@@ -20,6 +20,27 @@ make run
 `make image` 构建镜像；`make run` 在后台启动服务，等待健康检查通过并显示容器状态。后续启动直接执行 `make run`。Dockerfile 内部的固定数据库位置和静态资源路径由镜像管理，无需用户配置。
 
 打开 <http://127.0.0.1:8765>。页面和 API 同源，运行时不需要外部字体或图片服务。
+
+### 从 0.1 升级到 0.2
+
+```bash
+make image
+make migrate
+make run
+```
+
+`make migrate` 会先停止 API 服务，再备份并升级数据库；不会覆盖已有提示词。启动后自动同步 6 个模板、10 个 Skill，后续重复启动不会重复导入或覆盖自定义副本。新安装仍只需 `make image`、`make run`。
+
+### 模板与 Skills
+
+左侧选择“提示词模板”或“Skills”。支持关键词、模型、来源及多标签全部匹配筛选，标签数量按资源类型独立统计。内置内容只读，点击“复制并编辑”创建自己的版本。
+
+- 模板支持助手指令和成品提示词；填写参数后渲染、复制，成品可转为普通提示词草稿。此过程不调用模型，试填参数不写入版本历史。
+- Skill 提供文件树、文本编辑、图片预览、完整文本上下文复制及 ZIP / 目录导入导出。所有脚本仅作为文件保存，不执行。
+- 每次实际保存生成版本；历史版本可查看、导出和恢复，恢复另存为新版本。内置历史内容可以复制为自定义资源。
+- 官方 MiniMax 九个 Skill 固定到指定上游提交，保留原始文件和中英文入口；需要 MiniMax Hub 的技能展示其兼容性要求。
+
+完整使用说明、数据存放位置和接口见 [模板与 Skill 管理](docs/resources.md)，仓库预设格式见 [presets/README.md](presets/README.md)。
 
 ### 接管现有数据库
 
@@ -164,4 +185,4 @@ AI_LIBRARY_TEST_URL=http://127.0.0.1:8765 npm test
 
 大数据验证使用临时生成库：`.venv/bin/python backend/tests/benchmark_prompts.py`。不会读取或修改个人数据库。
 
-后续资源在 `backend/ai_library/<resource>/` 和 `frontend/src/resources/<resource>/` 下各自扩展；API 分别使用 `/skills`、`/templates` 等命名空间。当前不提供未实现资源的占位操作。
+模板和 Skill API 位于 `/api/v1/templates`、`/api/v1/skills`，与原提示词接口独立。全部资源及附件保存在同一 SQLite 中，现有 backup 命令完整包含附件和历史。

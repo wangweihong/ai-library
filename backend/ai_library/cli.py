@@ -8,6 +8,7 @@ from pathlib import Path
 from .database import PROMPT_COLUMNS, check_schema, configured_path, create_prompts, initialize_meta, unique_shasum_indexes
 from .errors import LibraryError
 from .prompts.models import shasum
+from .resources.schema import create_resource_schema
 
 
 def backup_database(path: Path) -> Path:
@@ -32,7 +33,7 @@ def migrate(path: Path):
         tables = {r[0] for r in conn.execute("SELECT name FROM sqlite_master WHERE type='table'")}
         if "library_meta" in tables:
             meta = dict(conn.execute("SELECT key,value FROM library_meta"))
-            if meta.get("schema_version") not in (None, "1"):
+            if meta.get("schema_version") not in (None, "1", "2"):
                 raise ValueError("Unsupported database version; refusing to downgrade")
         if "prompts" not in tables:
             if {"tags", "prompt_tags"} & tables:
@@ -83,6 +84,7 @@ def migrate(path: Path):
             prompt_id INTEGER NOT NULL REFERENCES prompts(id) ON DELETE CASCADE,
             tag_id INTEGER NOT NULL REFERENCES tags(id) ON DELETE CASCADE,
             PRIMARY KEY(prompt_id,tag_id))""")
+        create_resource_schema(conn)
         initialize_meta(conn)
         # Offline imports and restored backups may reuse a previous numeric revision.
         # A migration marks a fresh database generation, including when row IDs repeat.
@@ -124,6 +126,9 @@ def main():
     try:
         if args.command == "serve":
             prepare_database(args.db)
+            from .resources.presets import sync_presets
+            from .database import Database
+            sync_presets(Database(args.db))
             import uvicorn
             from .main import create_app
             uvicorn.run(create_app(args.db), host=args.host, port=args.port)

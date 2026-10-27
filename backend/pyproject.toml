@@ -4,10 +4,10 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ai-library"
-version = "0.1.0"
+version = "0.2.0"
 description = "A local library for reusable AI resources"
 requires-python = ">=3.12"
-dependencies = ["fastapi>=0.115,<1", "uvicorn>=0.30,<1"]
+dependencies = ["fastapi>=0.115,<1", "uvicorn>=0.30,<1", "PyYAML>=6,<7", "python-multipart>=0.0.20,<1"]
 
 [project.optional-dependencies]
 test = ["httpx>=0.27,<1", "pytest>=8,<10"]

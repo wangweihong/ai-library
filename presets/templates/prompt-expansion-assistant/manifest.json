@@ -1,0 +1,61 @@
+{
+  "title": "提示词扩写助手",
+  "description": "保留原意，按目标场景和扩写程度补充可执行细节。",
+  "template_kind": "assistant",
+  "tags": [
+    "提示词",
+    "扩写",
+    "助手"
+  ],
+  "target_models": [
+    "通用"
+  ],
+  "language": "zh",
+  "variables": [
+    {
+      "name": "original",
+      "label": "原始提示词",
+      "type": "textarea",
+      "default": null,
+      "required": true
+    },
+    {
+      "name": "target",
+      "label": "目标模型或场景",
+      "type": "textarea",
+      "default": "通用图像生成",
+      "required": false
+    },
+    {
+      "name": "depth",
+      "label": "扩写程度",
+      "type": "select",
+      "default": "标准",
+      "required": true,
+      "options": [
+        "轻度",
+        "标准",
+        "充分"
+      ]
+    },
+    {
+      "name": "constraints",
+      "label": "保留与排除要求",
+      "type": "textarea",
+      "default": "",
+      "required": false
+    },
+    {
+      "name": "output_language",
+      "label": "输出语言",
+      "type": "select",
+      "default": "英文",
+      "required": true,
+      "options": [
+        "中文",
+        "英文"
+      ]
+    }
+  ],
+  "context_paths": []
+}

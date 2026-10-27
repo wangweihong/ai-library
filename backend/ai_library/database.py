@@ -10,7 +10,7 @@ PROMPT_COLUMNS = (
     "id", "shasum", "prompt", "language", "media_type", "prompt_type", "nsfw",
     "content_format", "dynamic", "suggested_width", "suggested_height", "created_at",
 )
-SCHEMA_VERSION = "1"
+SCHEMA_VERSION = "2"
 
 
 def configured_path() -> Path:
@@ -51,6 +51,10 @@ def check_schema(conn):
             raise sqlite3.DatabaseError("Invalid tags table")
         if not {"prompt_id", "tag_id"} <= {r[1] for r in conn.execute("PRAGMA table_info(prompt_tags)")}:
             raise sqlite3.DatabaseError("Invalid prompt_tags table")
+        if not {"resources", "resource_versions", "resource_tag_names", "resource_tags", "file_blobs", "resource_files"} <= {
+            r[0] for r in conn.execute("SELECT name FROM sqlite_master WHERE type='table'")
+        }:
+            raise sqlite3.DatabaseError("Resource tables are missing")
     except sqlite3.DatabaseError as exc:
         raise LibraryError("数据库版本不兼容；请运行 ai-library migrate --db <数据库路径>", 503) from exc
 
@@ -92,6 +96,7 @@ def initialize_meta(conn):
     conn.execute("CREATE TABLE IF NOT EXISTS library_meta (key TEXT PRIMARY KEY, value TEXT NOT NULL)")
     conn.executemany("INSERT OR IGNORE INTO library_meta VALUES (?, ?)",
                      [("schema_version", SCHEMA_VERSION), ("instance", str(uuid.uuid4())), ("revision", "0")])
+    conn.execute("UPDATE library_meta SET value=? WHERE key='schema_version'", (SCHEMA_VERSION,))
     conn.execute("CREATE INDEX IF NOT EXISTS idx_prompts_shasum ON prompts(shasum)")
     conn.execute("CREATE INDEX IF NOT EXISTS idx_prompt_tags_tag ON prompt_tags(tag_id, prompt_id)")
     conn.execute("CREATE INDEX IF NOT EXISTS idx_prompts_filters ON prompts(language, media_type, prompt_type, id)")

@@ -1,0 +1,59 @@
+{
+  "title": "H3 Ref2VA 成品模板",
+  "description": "六段结构骨架，填写已完成的英文描述后直接复制使用。",
+  "template_kind": "prompt",
+  "tags": [
+    "视频",
+    "r2v",
+    "成品"
+  ],
+  "target_models": [
+    "MiniMax H3"
+  ],
+  "language": "zh",
+  "variables": [
+    {
+      "name": "subject_definitions",
+      "label": "参考主体与标签定义",
+      "type": "textarea",
+      "default": null,
+      "required": true
+    },
+    {
+      "name": "summary",
+      "label": "任务及参考关系概述",
+      "type": "textarea",
+      "default": null,
+      "required": true
+    },
+    {
+      "name": "retention_analysis",
+      "label": "参考保留与复用说明",
+      "type": "textarea",
+      "default": null,
+      "required": true
+    },
+    {
+      "name": "detailed_description",
+      "label": "完整逐镜头描述及时间",
+      "type": "textarea",
+      "default": null,
+      "required": true
+    },
+    {
+      "name": "overall_soundscape",
+      "label": "环境与动作声音",
+      "type": "textarea",
+      "default": "Natural ambience and physical action sounds.",
+      "required": true
+    },
+    {
+      "name": "non_diegetic_music",
+      "label": "背景音乐",
+      "type": "textarea",
+      "default": "No background music.",
+      "required": true
+    }
+  ],
+  "context_paths": []
+}

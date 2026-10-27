@@ -14,6 +14,8 @@ from .database import Database, configured_path
 from .errors import LibraryError
 from .prompts.models import BatchApply, BatchInput, Filters, PromptInput, PromptPatch, RandomInput, WriterInput
 from .prompts.service import PromptService
+from .resources.service import ResourceService
+from .resources.routes import resource_router
 
 
 class ListQuery(Filters):
@@ -30,9 +32,11 @@ class ListQuery(Filters):
 
 
 def create_app(db_path=None, static_dir=None):
-    app = FastAPI(title="AI Library", version="0.1.0")
+    app = FastAPI(title="AI Library", version="0.2.0")
     service = PromptService(Database(db_path or configured_path()))
     app.state.prompts = service
+    for kind in ("templates", "skills"):
+        app.include_router(resource_router(ResourceService(service.db, kind)))
 
     @app.exception_handler(LibraryError)
     async def library_error(_request, exc):

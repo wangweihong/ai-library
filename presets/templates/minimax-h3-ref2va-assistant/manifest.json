@@ -1,0 +1,49 @@
+{
+  "title": "MiniMax H3 Ref2VA 助手",
+  "description": "依照官方六段规范组织多模态参考、动作、镜头和声音。",
+  "template_kind": "assistant",
+  "tags": [
+    "视频",
+    "r2v",
+    "助手"
+  ],
+  "target_models": [
+    "MiniMax H3"
+  ],
+  "language": "zh",
+  "variables": [
+    {
+      "name": "task",
+      "label": "创作任务",
+      "type": "textarea",
+      "default": null,
+      "required": true
+    },
+    {
+      "name": "references",
+      "label": "参考素材清单及职责",
+      "type": "textarea",
+      "default": null,
+      "required": true
+    },
+    {
+      "name": "duration",
+      "label": "目标时长（秒）",
+      "type": "number",
+      "default": 10,
+      "required": true,
+      "min": 4,
+      "max": 15
+    },
+    {
+      "name": "constraints",
+      "label": "保留、改变与禁止事项",
+      "type": "textarea",
+      "default": "",
+      "required": false
+    }
+  ],
+  "context_paths": [
+    "context/ref-en.txt"
+  ]
+}

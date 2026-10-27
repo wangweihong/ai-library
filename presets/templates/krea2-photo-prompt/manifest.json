@@ -1,0 +1,52 @@
+{
+  "title": "Krea 2 写实成品模板",
+  "description": "直接组合主体、场景、光线和构图，可存入提示词库。",
+  "template_kind": "prompt",
+  "tags": [
+    "写实",
+    "生图",
+    "成品"
+  ],
+  "target_models": [
+    "Krea 2"
+  ],
+  "language": "zh",
+  "variables": [
+    {
+      "name": "subject",
+      "label": "主体",
+      "type": "text",
+      "default": null,
+      "required": true
+    },
+    {
+      "name": "scene",
+      "label": "场景",
+      "type": "text",
+      "default": "自然环境",
+      "required": true
+    },
+    {
+      "name": "lighting",
+      "label": "光线",
+      "type": "text",
+      "default": "柔和自然光",
+      "required": true
+    },
+    {
+      "name": "framing",
+      "label": "构图",
+      "type": "text",
+      "default": "主体清晰、空间层次自然",
+      "required": true
+    },
+    {
+      "name": "exclusions",
+      "label": "避免内容",
+      "type": "text",
+      "default": "多余文字和不自然的材质",
+      "required": true
+    }
+  ],
+  "context_paths": []
+}

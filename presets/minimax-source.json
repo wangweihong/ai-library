@@ -1,0 +1,151 @@
+{
+  "repository": "MiniMax-AI/MiniMax-H3",
+  "commit": "d21241f0a4b3acbb34c97dae47fa417b7065e438",
+  "license": null,
+  "files": [
+    {
+      "path": "skills/3d-animation-short-generator/SKILL.cn.md",
+      "sha256": "54767a6b3c0194390a7c16a176269046c3fea6d20eb787c60789994a07228dda"
+    },
+    {
+      "path": "skills/3d-animation-short-generator/SKILL.md",
+      "sha256": "92f1130ccf456b3e5be2d8aab238a739d26e130ff72061c239e613e4d615f5b4"
+    },
+    {
+      "path": "skills/3d-animation-short-generator/meta.yaml",
+      "sha256": "dbc9a379b7a808e7009e2748cd25331aaa709227573001b657a02421643f28ca"
+    },
+    {
+      "path": "skills/3d-animation-short-generator/references/fallback-policy.md",
+      "sha256": "c3dcfd75c1744dfbde0778a2ced5c3a320230e24fd3419a1861853378521b251"
+    },
+    {
+      "path": "skills/3d-animation-short-generator/references/model-selection.md",
+      "sha256": "fb020acd0a8a42257eff9196d9aa728b62a5cd892c815396a58c5920ca7dff49"
+    },
+    {
+      "path": "skills/3d-animation-short-generator/references/qc-checklist.md",
+      "sha256": "ffd9b192f09aff8cbeb60be859cf13b616ae8ced6a9324cda7728a47e3ea3d3b"
+    },
+    {
+      "path": "skills/3d-animation-short-generator/references/shot-table-spec.md",
+      "sha256": "d4770ff3f7c6d1d82770e8a93b91cecad269a0da7a5fd97d5c27862a3e4c805c"
+    },
+    {
+      "path": "skills/3d-animation-short-generator/references/storyboard-guidelines.md",
+      "sha256": "a1a5aaed9681dd2f66c5ff1f92ea433bf8a04c8a145cd806623e29e8cabfe1f6"
+    },
+    {
+      "path": "skills/README.md",
+      "sha256": "d993939102d1b06299ab0cacd9c6db79b2a6413c7df20104ce89c49d5638fcb6"
+    },
+    {
+      "path": "skills/brand-promo-video-generator/SKILL.cn.md",
+      "sha256": "e148ad61fe77114543b03ca68d9e1bc4b343d972d3264f6f2a014eaa27f55243"
+    },
+    {
+      "path": "skills/brand-promo-video-generator/SKILL.md",
+      "sha256": "a50d270e412be4ed5cf88b187665585f4da637701eb24333fbdef95a19442f37"
+    },
+    {
+      "path": "skills/brand-promo-video-generator/meta.yaml",
+      "sha256": "e405c2163ebf0c28edbee25202413bae00666c6031b04fe7acd97958e3e47eed"
+    },
+    {
+      "path": "skills/co-op-game-intro-generator/SKILL.cn.md",
+      "sha256": "42120f68416eb0ba3b6fd1d1755b902438cc25c89c0e3c30d445b0d566c7237a"
+    },
+    {
+      "path": "skills/co-op-game-intro-generator/SKILL.md",
+      "sha256": "8b49cf84a70fbbc99c661fdac2235cba7f7dd0bde51b639b6ed9c1679a707f5e"
+    },
+    {
+      "path": "skills/co-op-game-intro-generator/meta.yaml",
+      "sha256": "1f59c2c70e55c1966c387044b114ed59e4d83c5eebb19474974361c81b7ec531"
+    },
+    {
+      "path": "skills/co-op-game-intro-generator/references/h3-confirmation-image-template.md",
+      "sha256": "344325132841a673fb2ccc5e12ada2c95c2cba19dd2b658678467219c9f66bbd"
+    },
+    {
+      "path": "skills/co-op-game-intro-generator/references/h3-video-prompt-template.md",
+      "sha256": "7fac20c236de585d2f76e4fa01f9e74ced0a88a6d76d2b14c75ceac99607b9c2"
+    },
+    {
+      "path": "skills/h3-prompt-writing/SKILL.md",
+      "sha256": "a7000443588ca3f145e3b3fd8900f14e0325dc460bd811268fac89a9dc8e56d0"
+    },
+    {
+      "path": "skills/h3-prompt-writing/agents/openai.yaml",
+      "sha256": "7770c9d784b7251ab882ee29a738219a3f01811e57ba7fc7822fa83eb8438c1a"
+    },
+    {
+      "path": "skills/h3-prompt-writing/references/base-en.txt",
+      "sha256": "2cfebc096a6e08370f288d468d90b60f7f9bcb938f94bf090816e910e48e75fc"
+    },
+    {
+      "path": "skills/h3-prompt-writing/references/ref-en.txt",
+      "sha256": "1e574f356716ad55612247ffb7bbccbcdb484ad96599d63c7dca1af186b1fab7"
+    },
+    {
+      "path": "skills/handdrawn-live-video-generator/SKILL.cn.md",
+      "sha256": "ce4a4bcc867def998cd964a15367a9b12cb11534b94a33ed95a4107f49d3de08"
+    },
+    {
+      "path": "skills/handdrawn-live-video-generator/SKILL.md",
+      "sha256": "5c62175b552f51ed0bfb1e8fcb6fdcfab09530a36570478e58e41c14340b3001"
+    },
+    {
+      "path": "skills/handdrawn-live-video-generator/meta.yaml",
+      "sha256": "374bd4ebb0b1cc4cb49754dab8434cfae4f8e064eb2958d93fba1834377a46a6"
+    },
+    {
+      "path": "skills/minimalist-product-ad-generator/SKILL.cn.md",
+      "sha256": "287341821b2104ca0caf61326dfdddc5efff09479bb2be321eeaa7cb8d4d01fa"
+    },
+    {
+      "path": "skills/minimalist-product-ad-generator/SKILL.md",
+      "sha256": "1f07c58090141159861fa84762ad09eaaf78c2ceaa4cebb08e0e429a55994196"
+    },
+    {
+      "path": "skills/minimalist-product-ad-generator/meta.yaml",
+      "sha256": "ff790928f5c6abcffcdd25e23300b7ddf1bce431459c9633787278ebd26a71b8"
+    },
+    {
+      "path": "skills/music-video-subtitle-generator/SKILL.cn.md",
+      "sha256": "6a44651945455ba73f8884474027d33afccb7d34485ae6977b454c4c112b6f10"
+    },
+    {
+      "path": "skills/music-video-subtitle-generator/SKILL.md",
+      "sha256": "a2c0904632e8db52d2ffdcbaa21208331efd7447b9f34185e7a63a408ae0c848"
+    },
+    {
+      "path": "skills/music-video-subtitle-generator/meta.yaml",
+      "sha256": "bb39aca609fd5681342af9e982914872d3770a49a56f724619b2a3cd2b16ffb1"
+    },
+    {
+      "path": "skills/paper-collage-explainer-generator/SKILL.cn.md",
+      "sha256": "ceaecc38dcf78294d12e658c57b690a0f671bc4b9f7292ef5a65a7db178da4aa"
+    },
+    {
+      "path": "skills/paper-collage-explainer-generator/SKILL.md",
+      "sha256": "2223d4b4ec6b2842db4252a83f00aa6c31e6daa5e8d020d9518e3a8743c47de0"
+    },
+    {
+      "path": "skills/paper-collage-explainer-generator/meta.yaml",
+      "sha256": "bb43ad3e81fc92c4ed7c0e2bd750643c84fe7f02641c2fa0cff7747d389f9f4e"
+    },
+    {
+      "path": "skills/papercraft-stop-motion-explainer/SKILL.cn.md",
+      "sha256": "94dfb06a487aef8a3d74c5ec7f645fdbd79648dee06934889d823f2624171237"
+    },
+    {
+      "path": "skills/papercraft-stop-motion-explainer/SKILL.md",
+      "sha256": "bf8b8e42acd91a0221335d3414abac6c1ad1fd9d8a452b0f7e08f2a973a4fbce"
+    },
+    {
+      "path": "skills/papercraft-stop-motion-explainer/meta.yaml",
+      "sha256": "088fffbe74924a1766096421e8e890aeefc1a8f0e870751b1aea6b678d3be416"
+    }
+  ]
+}
