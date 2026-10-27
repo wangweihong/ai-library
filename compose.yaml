@@ -1,0 +1,31 @@
+services:
+  ai-library:
+    build: .
+    image: ai-library:local
+    init: true
+    restart: unless-stopped
+    user: "${AI_LIBRARY_UID:-1000}:${AI_LIBRARY_GID:-1000}"
+    environment:
+      AI_LIBRARY_DB_PATH: /data/${AI_LIBRARY_DB_NAME:-prompts.sqlite3}
+    ports:
+      - "127.0.0.1:${AI_LIBRARY_PORT:-8765}:8765"
+    volumes:
+      - ${PROMPT_DATA_DIR:-library-data}:/data
+    read_only: true
+    tmpfs:
+      - /tmp:size=256m
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8765/api/v1/health', timeout=3)"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    networks:
+      - library
+
+networks:
+  library:
+    name: ${AI_LIBRARY_NETWORK:-ai-library}
+
+volumes:
+  library-data:
